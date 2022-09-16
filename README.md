@@ -13,7 +13,7 @@ See repository branches for supported hadoop versions
 
 To deploy an example HDFS cluster, run:
 ```
-  docker-compose up
+  docker compose -f docker-compose.yml up -d
 ```
 
 Run example wordcount job:
@@ -26,7 +26,7 @@ Or deploy in swarm:
 docker stack deploy -c docker-compose-v3.yml hadoop
 ```
 
-`docker-compose` creates a docker network that can be found by running `docker network list`, e.g. `dockerhadoop_default`.
+`docker compose -f docker-compose.yml up -d` creates a docker network that can be found by running `docker network list`, e.g. `dockerhadoop_default`.
 
 Run `docker network inspect` on the network (e.g. `dockerhadoop_default`) to find the IP the hadoop interfaces are published on. Access these interfaces with the following URLs:
 
